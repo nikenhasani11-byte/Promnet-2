@@ -1,72 +1,941 @@
+```html
 <!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-    <title>Niken Hasani's Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Niken Hasani | Portfolio</title>
+
+    <style>
+      /* =========================
+       RESET & GLOBAL
+    ========================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.6;
+        background: #f5f7fa;
+        color: #222;
+        transition: 0.3s;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      section {
+        padding: 80px 10%;
+      }
+
+      /* =========================
+       NAVBAR
+    ========================== */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 18px 10%;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .logo {
+        font-size: 22px;
+        font-weight: bold;
+      }
+
+      .logo span {
+        color: #6c63ff;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 25px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+        transition: 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #6c63ff;
+      }
+
+      .theme-btn {
+        border: none;
+        background: #6c63ff;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+
+      /* =========================
+       HERO
+    ========================== */
+      .hero {
+        min-height: 90vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
+      }
+
+      .hero-text {
+        max-width: 600px;
+        animation: fadeIn 1.2s ease;
+      }
+
+      .hero-text h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+      }
+
+      .hero-text h1 span {
+        color: #6c63ff;
+      }
+
+      .hero-text h2 {
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      .hero-text p {
+        margin-bottom: 25px;
+        color: #555;
+      }
+
+      .btn {
+        display: inline-block;
+        background: #6c63ff;
+        color: white;
+        padding: 12px 22px;
+        border-radius: 8px;
+        margin-right: 10px;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        background: #574fd6;
+      }
+
+      .btn-outline {
+        background: transparent;
+        color: #6c63ff;
+        border: 2px solid #6c63ff;
+      }
+
+      .btn-outline:hover {
+        background: #6c63ff;
+        color: white;
+      }
+
+      .profile-image {
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #6c63ff, #9b95ff);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 80px;
+        font-weight: bold;
+        box-shadow: 0 15px 40px rgba(108, 99, 255, 0.3);
+      }
+
+      /* =========================
+       SECTION TITLE
+    ========================== */
+      .section-title {
+        text-align: center;
+        margin-bottom: 45px;
+      }
+
+      .section-title h2 {
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+
+      .section-title p {
+        color: #777;
+      }
+
+      /* =========================
+       ABOUT
+    ========================== */
+      .about-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      .about-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+      }
+
+      .about-card h3 {
+        margin-bottom: 15px;
+        color: #6c63ff;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      td {
+        padding: 12px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      td:first-child {
+        font-weight: bold;
+        width: 40%;
+      }
+
+      /* =========================
+       SKILLS
+    ========================== */
+      .skills {
+        margin-top: 25px;
+      }
+
+      .skill {
+        margin-bottom: 20px;
+      }
+
+      .skill-info {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 7px;
+      }
+
+      .skill-bar {
+        height: 10px;
+        background: #ddd;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      .skill-progress {
+        height: 100%;
+        background: #6c63ff;
+        border-radius: 10px;
+      }
+
+      /* =========================
+       HOBI
+    ========================== */
+      .hobby-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+      }
+
+      .hobby-card {
+        background: white;
+        padding: 30px;
+        text-align: center;
+        border-radius: 15px;
+        transition: 0.3s;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+      }
+
+      .hobby-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .hobby-icon {
+        font-size: 45px;
+        margin-bottom: 15px;
+      }
+
+      /* =========================
+       PROJECT
+    ========================== */
+      .project-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+      }
+
+      .project-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+        transition: 0.3s;
+      }
+
+      .project-card:hover {
+        transform: translateY(-8px);
+      }
+
+      .project-image {
+        height: 160px;
+        background: linear-gradient(135deg, #6c63ff, #aaa5ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 50px;
+      }
+
+      .project-content {
+        padding: 25px;
+      }
+
+      .project-content h3 {
+        margin-bottom: 10px;
+      }
+
+      .project-content p {
+        color: #666;
+        margin-bottom: 15px;
+      }
+
+      /* =========================
+       EDUCATION
+    ========================== */
+      .education {
+        max-width: 800px;
+        margin: auto;
+      }
+
+      .education-item {
+        background: white;
+        padding: 25px;
+        margin-bottom: 20px;
+        border-left: 5px solid #6c63ff;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+      }
+
+      .education-item h3 {
+        margin-bottom: 5px;
+      }
+
+      .education-item span {
+        color: #6c63ff;
+        font-weight: bold;
+      }
+
+      /* =========================
+       CONTACT
+    ========================== */
+      .contact-form {
+        max-width: 700px;
+        margin: auto;
+        background: white;
+        padding: 35px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 7px;
+        font-weight: bold;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-family: inherit;
+      }
+
+      .form-group textarea {
+        height: 130px;
+        resize: vertical;
+      }
+
+      /* =========================
+       SOCIAL MEDIA
+    ========================== */
+      .social {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .social a {
+        display: inline-block;
+        margin: 5px;
+        padding: 10px 18px;
+        background: #eee;
+        border-radius: 20px;
+        transition: 0.3s;
+      }
+
+      .social a:hover {
+        background: #6c63ff;
+        color: white;
+      }
+
+      /* =========================
+       FOOTER
+    ========================== */
+      footer {
+        text-align: center;
+        padding: 25px;
+        background: #1f1f2e;
+        color: white;
+      }
+
+      /* =========================
+       BACK TO TOP
+    ========================== */
+      #topBtn {
+        position: fixed;
+        right: 25px;
+        bottom: 25px;
+
+        display: none;
+
+        border: none;
+        background: #6c63ff;
+        color: white;
+
+        width: 45px;
+        height: 45px;
+
+        border-radius: 50%;
+        cursor: pointer;
+
+        font-size: 20px;
+      }
+
+      /* =========================
+       DARK MODE
+    ========================== */
+      body.dark {
+        background: #121212;
+        color: #eee;
+      }
+
+      body.dark nav,
+      body.dark .about-card,
+      body.dark .hobby-card,
+      body.dark .project-card,
+      body.dark .education-item,
+      body.dark .contact-form {
+        background: #1e1e1e;
+        color: #eee;
+      }
+
+      body.dark .hero-text p,
+      body.dark .section-title p,
+      body.dark .project-content p {
+        color: #bbb;
+      }
+
+      body.dark td {
+        border-bottom-color: #444;
+      }
+
+      body.dark .social a {
+        background: #333;
+        color: white;
+      }
+
+      /* =========================
+       ANIMATION
+    ========================== */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* =========================
+       RESPONSIVE
+    ========================== */
+      @media (max-width: 768px) {
+        nav {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .nav-links {
+          gap: 12px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+
+        section {
+          padding: 60px 6%;
+        }
+
+        .hero {
+          flex-direction: column-reverse;
+          text-align: center;
+        }
+
+        .hero-text h1 {
+          font-size: 36px;
+        }
+
+        .profile-image {
+          width: 220px;
+          height: 220px;
+          font-size: 60px;
+        }
+
+        .about-container {
+          grid-template-columns: 1fr;
+        }
+
+        .hobby-container,
+        .project-container {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <h1>About Me (Niken Hasani)</h1>
+    <!-- =========================
+       NAVIGATION
+  ========================== -->
+
     <nav>
-      <a href="index.html">Home</a> | <a href="about.html">About</a> |
-      <a href="project.html">Project</a> | <a href="contact.html">Contact</a>
+      <div class="logo">Niken<span>.</span></div>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#project">Project</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <button class="theme-btn" onclick="toggleDarkMode()">🌙</button>
     </nav>
-    <hr />
-    <h2>Profil Singkat</h2>
-    <p>
-      Nama saya <strong>Niken Hasani</strong>, saya adalah mahasiswa semester 3
-      dari Program Studi Pendidikan Sistem dan Teknologi Informasi yang memiliki
-      minat di bidang design dan teknologi informasi.
-    </p>
-    <p>
-      Saya harap website yang saya buat dapat berguna, bermanfaat dan mudah
-      digunakan.
-    </p>
-    <h2>Data Diri</h2>
-    <table border="2" cellpadding="8">
-      <tr>
-        <td><strong>Data</strong></td>
-        <td><strong>Keterangan</strong></td>
-      </tr>
-      <tr>
-        <td>Nama</td>
-        <td>Niken Hasani</td>
-      </tr>
-      <tr>
-        <td>NIM</td>
-        <td>2508150</td>
-      </tr>
-      <tr>
-        <td>Program Studi</td>
-        <td>Pendidikan Sistem dan Teknologi Informasi</td>
-      </tr>
-      <tr>
-        <td>Semester</td>
-        <td>3</td>
-      </tr>
-      <tr>
-        <td>Email</td>
-        <td>
-          <a href="mailto:nikenhasani.11@student.upi.edu"
-            >nikenhasani.11@student.upi.edu</a
-          >
-        </td>
-      </tr>
-    </table>
-    <h2>Hobi</h2>
-    <ol>
-      <li>Design</li>
-      <li>Makan</li>
-      <li>Photography</li>
-    </ol>
-    <h2>Riwayat Pendidikan</h2>
-    <ul>
-      <li>SD Negeri Simpangan 03 - 2019</li>
-      <li>SMP Negeri 2 Cikarang Utara - 2022</li>
-      <li>SMA Negeri 3 Cikarang Utara - 2025</li>
-      <li>Universitas Pendidikan Indonesia - Sekarang</li>
-    </ul>
-    <hr />
-    <a href="home.html">Kembali ke Home</a>
-    <p>© 2026 Niken Hasani</p>
+
+    <!-- =========================
+       HOME
+  ========================== -->
+
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <h1>Halo, saya <span>Niken Hasani</span></h1>
+
+        <h2>Mahasiswa Pendidikan Sistem dan Teknologi Informasi</h2>
+
+        <p>
+          Saya merupakan mahasiswa semester 3 yang memiliki ketertarikan pada
+          bidang design, teknologi informasi, dan pengembangan website. Saya
+          senang mempelajari hal-hal baru dan mengembangkan kreativitas melalui
+          teknologi.
+        </p>
+
+        <a href="#about" class="btn"> Tentang Saya </a>
+
+        <a href="#contact" class="btn btn-outline"> Hubungi Saya </a>
+      </div>
+
+      <div class="profile-image">NH</div>
+    </section>
+
+    <!-- =========================
+       ABOUT
+  ========================== -->
+
+    <section id="about">
+      <div class="section-title">
+        <h2>About Me</h2>
+        <p>Kenali saya lebih dekat</p>
+      </div>
+
+      <div class="about-container">
+        <div class="about-card">
+          <h3>Profil Singkat</h3>
+
+          <p>
+            Nama saya <strong>Niken Hasani</strong>. Saya adalah mahasiswa
+            semester 3 dari Program Studi Pendidikan Sistem dan Teknologi
+            Informasi.
+          </p>
+
+          <br />
+
+          <p>
+            Saya memiliki minat pada bidang design dan teknologi informasi. Saya
+            juga tertarik untuk mengembangkan kemampuan dalam pembuatan website
+            yang menarik, responsif, dan mudah digunakan.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3>Data Diri</h3>
+
+          <table>
+            <tr>
+              <td>Nama</td>
+              <td>Niken Hasani</td>
+            </tr>
+
+            <tr>
+              <td>NIM</td>
+              <td>2508150</td>
+            </tr>
+
+            <tr>
+              <td>Program Studi</td>
+              <td>Pendidikan Sistem dan Teknologi Informasi</td>
+            </tr>
+
+            <tr>
+              <td>Semester</td>
+              <td>3</td>
+            </tr>
+
+            <tr>
+              <td>Email</td>
+              <td>
+                <a href="mailto:nikenhasani.11@student.upi.edu">
+                  nikenhasani.11@student.upi.edu
+                </a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+       SKILLS
+  ========================== -->
+
+    <section id="skills">
+      <div class="section-title">
+        <h2>My Skills</h2>
+        <p>Kemampuan yang sedang saya kembangkan</p>
+      </div>
+
+      <div class="about-card skills">
+        <div class="skill">
+          <div class="skill-info">
+            <span>HTML</span>
+            <span>85%</span>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-info">
+            <span>CSS</span>
+            <span>80%</span>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 80%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-info">
+            <span>Design</span>
+            <span>85%</span>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 85%"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-info">
+            <span>Photography</span>
+            <span>75%</span>
+          </div>
+
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: 75%"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+       HOBBY
+  ========================== -->
+
+    <section>
+      <div class="section-title">
+        <h2>My Hobbies</h2>
+        <p>Hal yang saya sukai</p>
+      </div>
+
+      <div class="hobby-container">
+        <div class="hobby-card">
+          <div class="hobby-icon">🎨</div>
+          <h3>Design</h3>
+          <p>Mengeksplorasi kreativitas melalui berbagai desain visual.</p>
+        </div>
+
+        <div class="hobby-card">
+          <div class="hobby-icon">🍜</div>
+          <h3>Makan</h3>
+          <p>Menikmati berbagai makanan dan mencoba makanan baru.</p>
+        </div>
+
+        <div class="hobby-card">
+          <div class="hobby-icon">📷</div>
+          <h3>Photography</h3>
+          <p>Mengabadikan momen menarik melalui fotografi.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+       PROJECT
+  ========================== -->
+
+    <section id="project">
+      <div class="section-title">
+        <h2>My Projects</h2>
+        <p>Beberapa project yang saya kerjakan</p>
+      </div>
+
+      <div class="project-container">
+        <div class="project-card">
+          <div class="project-image">💻</div>
+
+          <div class="project-content">
+            <h3>Personal Website</h3>
+
+            <p>
+              Website portfolio pribadi yang dibuat menggunakan HTML, CSS, dan
+              JavaScript.
+            </p>
+
+            <a href="#" class="btn"> View Project </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">🎨</div>
+
+          <div class="project-content">
+            <h3>Design Project</h3>
+
+            <p>
+              Project desain visual untuk mengembangkan kreativitas dan
+              kemampuan desain.
+            </p>
+
+            <a href="#" class="btn"> View Project </a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-image">📸</div>
+
+          <div class="project-content">
+            <h3>Photography</h3>
+
+            <p>
+              Kumpulan hasil fotografi dari berbagai momen dan objek menarik.
+            </p>
+
+            <a href="#" class="btn"> View Project </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+       EDUCATION
+  ========================== -->
+
+    <section id="education">
+      <div class="section-title">
+        <h2>Education</h2>
+        <p>Riwayat pendidikan saya</p>
+      </div>
+
+      <div class="education">
+        <div class="education-item">
+          <h3>SD Negeri Simpangan 03</h3>
+          <span>2019</span>
+        </div>
+
+        <div class="education-item">
+          <h3>SMP Negeri 2 Cikarang Utara</h3>
+          <span>2022</span>
+        </div>
+
+        <div class="education-item">
+          <h3>SMA Negeri 3 Cikarang Utara</h3>
+          <span>2025</span>
+        </div>
+
+        <div class="education-item">
+          <h3>Universitas Pendidikan Indonesia</h3>
+          <span>2025 - Sekarang</span>
+
+          <p>Program Studi Pendidikan Sistem dan Teknologi Informasi</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================
+       CONTACT
+  ========================== -->
+
+    <section id="contact">
+      <div class="section-title">
+        <h2>Contact Me</h2>
+        <p>Silakan hubungi saya melalui form berikut</p>
+      </div>
+
+      <form class="contact-form" onsubmit="sendMessage(event)">
+        <div class="form-group">
+          <label for="name"> Nama </label>
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Masukkan nama Anda"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="email"> Email </label>
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Masukkan email Anda"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message"> Pesan </label>
+
+          <textarea
+            id="message"
+            placeholder="Tulis pesan Anda..."
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn">Kirim Pesan</button>
+      </form>
+
+      <div class="social">
+        <a href="#"> Instagram </a>
+
+        <a href="#"> LinkedIn </a>
+
+        <a href="#"> GitHub </a>
+      </div>
+    </section>
+
+    <!-- =========================
+       BACK TO TOP
+  ========================== -->
+
+    <button id="topBtn" onclick="scrollToTop()">↑</button>
+
+    <!-- =========================
+       FOOTER
+  ========================== -->
+
+    <footer>
+      <p>© <span id="year"></span> Niken Hasani. All Rights Reserved.</p>
+    </footer>
+
+    <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+    <script>
+      // Tahun otomatis
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Dark Mode
+      function toggleDarkMode() {
+        document.body.classList.toggle("dark");
+
+        const button = document.querySelector(".theme-btn");
+
+        if (document.body.classList.contains("dark")) {
+          button.textContent = "☀️";
+        } else {
+          button.textContent = "🌙";
+        }
+      }
+
+      // Tombol Back To Top
+      const topButton = document.getElementById("topBtn");
+
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+          topButton.style.display = "block";
+        } else {
+          topButton.style.display = "none";
+        }
+      });
+
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      }
+
+      // Form Contact
+      function sendMessage(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+
+        alert("Terima kasih, " + name + "! Pesan Anda berhasil dikirim.");
+
+        document.querySelector(".contact-form").reset();
+      }
+    </script>
   </body>
 </html>
+```
