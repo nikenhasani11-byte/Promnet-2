@@ -3,17 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <title>Niken Hasani's Profile</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>My Projects</h1>
+
+    <div class="header">
+      <h1>My Projects</h1>
+    </div>
+
     <nav>
-      <a href="index.html">Home</a> | <a href="about.html">About</a> |
-      <a href="project.html">Project</a> | <a href="contact.html">Contact</a>
+      <div class="navbar">
+      <a href="index.html">Home</a> 
+      <a href="about.html">About</a>
+      <a href="project.html">Project</a> 
+      <a href="contact.html">Contact</a>
+      <a href="design.html">Design</a>
+      </div>
     </nav>
-    <hr />
-    <h2>Daftar Project Saya</h2>
+
+    <div class="projek">
+    <h1>Daftar Project Saya</h1>
       Berikut adalah beberapa project sederhana yang pernah atau sedang saya
       kerjakan.
+    </div>
+    
+    <div class="project-container">
+    <div class="project-card">
     <h3>Project 1: Website FPB Generator</h3>
     <img src="assets/fpb.png" alt="website fpb" width="300" />
     <p>
@@ -25,6 +40,9 @@
       <a href="https://faktor-persekutuan-terbesar.vercel.app/">Website FPB</a>
     </p>
     <hr />
+    </div>
+
+    <div class="project-card">
     <h3>Project 2: Website Kumpulan Materi Matematika</h3>
     <img src="assets/web matdis.png" alt="website matdis" width="300" />
     <p>
@@ -35,6 +53,9 @@
       <a href="https://sites.google.com/student.upi.edu/website-matdis-psti-2b?usp=sharing">Website Matdis</a>
     <hr />
     </p>
+    </div>
+
+    <div class="project-card">
     <h3>Project 3: Mindventure (Game Berbasis Quiz)</h3>
     <img src="assets/mindventure.jpeg" alt="Mindventure" width="300" />
     <p>
@@ -44,14 +65,34 @@
       Repository:
       <a href="https://github.com/ceceaj/Project-UAS-2B">Game Mindventure</a>
     </p>
-    <h2>Teknologi yang Digunakan</h2>
-    <ul>
-      <li>Git</li>
-      <li>Google Sites</li>
-      <li>Godot</li>
-    </ul>
+    </div>
+
+ <div class="teknologi">
+  <h2>Teknologi yang Digunakan</h2>
+
+  <div class="teknologi-container">
+    <div class="teknologi-card">
+      <h3>Git</h3>
+      <p>Website FPB</p>
+    </div>
+
+    <div class="teknologi-card">
+      <h3>Google Sites</h3>
+      <p>Website Matematika Diskrit</p>
+    </div>
+
+    <div class="teknologi-card">
+      <h3>Godot</h3>
+      <p>Game Mindventure</p>
+    </div>
+  </div>
+</div>
+
+    <div class="ringkasan">
     <h2>Ringkasan Project</h2>
-      <table border="2" cellpadding="8" style="margin-left: 0;"> 
+
+    <div class="ringkasan-content">
+      <table border="2" cellpadding="8" style="margin-bottom: 0;"> 
     <tr>
       <td colspan="4" style="text-align: center"><strong>Ringkasan Portofolio Project</strong></td>
     </tr>
@@ -82,6 +123,8 @@
     </tr>
     </table>
     <hr />
+    </div>
+    
     <p>
       <a href="contact.html">Tertarik berdiskusi? Hubungi saya</a>
     </p>
